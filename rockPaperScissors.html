@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+          let computerScore = 0;
+          let playerScore = 0;
+    function computerPlay() {
+      let randomElement = ["rock", "paper", "scissors"]
+      let final = randomElement[Math.floor(Math.random() * randomElement.length)];
+      return final;
+    }
+
+    function playRound() {
+      let playerSelection = prompt("What do you want to play", "rock").toLowerCase();
+      let computerSelection = computerPlay();
+      if (playerSelection === computerSelection) {
+        computerScore++;
+        playerScore++;
+        console.log("DraW!!!")
+      } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore++;
+        console.log("Player Wins")
+      } else if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore++;
+        console.log("Computer Wins!")
+      } else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerScore++;
+        console.log("Player Wins")
+      } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        computerScore++;
+        console.log("Computer Wins!")
+      }  else if (playerSelection === "scissors" && computerSelection === "rock") {
+        computerScore++;
+        console.log("Computer Wins!")
+      } else if (playerSelection === "scissors" && computerSelection=== "paper") {
+        playerScore++;
+        console.log("Player Wins")
+      }
+    }
+
+    function game() {
+      for (let i=0; i < 5; i++) {
+        var processed = playRound();
+      }
+      if (computerScore > playerScore) {
+        console.log("Computer is smarter!")
+      } else if ( computerScore === playerScore) {
+        console.log("Final Draw!")
+      } else {
+        console.log("Player is smarter!")
+      }
+    }
+
+  </script>
+</body>
+</html>
